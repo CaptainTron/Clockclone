@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(39, 25, 25);
+    font-family: sans-serif;
+    float: left;
+
+}
+#clock{
+    width: 280px;
+    height: 280px;
+    background: rgb(59, 59, 8);
+    margin: 200px auto;
+    border-radius: 50%;
+    position: relative;
+    border: 9px solid rgb(12, 8, 8);
+    box-shadow: 0 0 9px 8px rgb(121, 5, 5),15px 1px 8px 7px black;
+}
+#clock p {
+    font-size: 20px;
+    color: rgb(126, 93, 93);
+    margin: 155px 74px;
+    text-shadow: 0px 0px 2px rgb(68, 44, 44);
+    
+
+}
+/* The below element is not showing its effect on the Clock means
+till now I did't see any difference on using before or after */
+#clock::before{
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    left: -18px;
+    top: -18px;
+    border: 10px solid #f70404;
+    border-radius: 50%;
+    z-index: -2;
+}
+#clock:after{
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: #e94504;
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - 9px);
+    top: calc(50% - 9px);
+    box-shadow: 0 0 5px 6px rgb(77, 13, 5);
+}
+#clock li{
+    list-style-type: none;
+    position: absolute;
+}
+.numbers{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    padding: 5%;
+    text-align: center;
+}
+.numbers span{
+    display: block;
+    color: #e5e8ee;
+    font-size: 30px;
+    text-shadow:0 0px 13px 6px #9aaac5;
+}
+.numbers:nth-child(1){
+    transform: rotate(30deg);
+}
+.numbers:nth-child(1) span{
+    transform: rotate(-30deg);
+}
+.numbers:nth-child(2){
+    transform: rotate(60deg);
+}
+.numbers:nth-child(2) span{
+    transform: rotate(-60deg);
+}
+.numbers:nth-child(3){
+    transform: rotate(90deg);
+}
+.numbers:nth-child(3) span{
+    transform: rotate(-90deg);
+}
+.numbers:nth-child(4){
+    transform: rotate(120deg);
+}
+.numbers:nth-child(4) span{
+    transform: rotate(-120deg);
+}
+.numbers:nth-child(5){
+    transform: rotate(150deg);
+}
+.numbers:nth-child(5) span{
+    transform: rotate(-150deg);
+}
+.numbers:nth-child(6){
+    transform: rotate(180deg);
+}
+.numbers:nth-child(6) span{
+    transform: rotate(-180deg);
+}
+.numbers:nth-child(7){
+    transform: rotate(210deg);
+}
+.numbers:nth-child(7) span{
+    transform: rotate(-210deg);
+}
+.numbers:nth-child(8){
+    transform: rotate(240deg);
+}
+.numbers:nth-child(8) span{
+    transform: rotate(-240deg);
+}
+.numbers:nth-child(9){
+    transform: rotate(270deg);
+}
+.numbers:nth-child(9) span{
+    transform: rotate(-270deg);
+}
+.numbers:nth-child(10){
+    transform: rotate(300deg);
+}
+.numbers:nth-child(10) span{
+    transform: rotate(-300deg);
+}
+.numbers:nth-child(11){
+    transform: rotate(330deg);
+}
+.numbers:nth-child(11) span{
+    transform: rotate(-330deg);
+}
+#second{
+    width: 100%;
+    height: 100%;
+    /* This control the second line of clock */
+    animation: sec 60s steps(60, end) infinite;
+}
+#second::after{
+    content: "";
+    width: 3px;
+    height: 109px;
+    border-radius: 9px;
+    background: red;
+    position: absolute;
+    left: calc(50% - 2px);
+    top: 55px;
+    box-shadow: 4px 4px 3px black;
+}
+#minute{
+    width: 100%;
+    height: 100%;
+    /* This line control the minute line of clock */
+    animation: sec 3600s steps(60, end) infinite;
+}
+#minute::after{
+    content: "";
+    width: 6px;
+    height: 79px;
+    border-radius: 4px 4px 2px 2px;
+    background: white;
+    position: absolute;
+    left: calc(50% + 30px);
+    top: 29%;
+    transform: rotate(-120deg);
+    box-shadow: 4px 4px 8px black;
+}
+#hour{
+    width: 100%;
+    height: 100%;
+    /* This line control the hour hand of clock */
+    animation: sec 216000s steps(60, end) infinite;
+}
+#hour::after{
+    content: "";
+    width: 8px;
+    height: 50px;
+    border-radius: 5px 5px 3px 3px;
+    background: steelblue;
+    position: absolute;
+    right: calc(50% - 4px);
+    top: 50%;
+    box-shadow: 4px 4px 8px black;
+}
+@keyframes sec {
+    to{
+        transform: rotate(360deg);
+    }
+}
